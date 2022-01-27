@@ -43,6 +43,19 @@ ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(POOL_SIZE)
 * L'ordre des opérations, et notemment de l'appel des methodes update() et getValue() est gouverné par la stratégie de diffusion. Il existe trois stratégie de diffusion différentes, voir ci dessous.
 
 ## Algorithme de diffusion - Strategy
+	
+	### Diffusion Atomique
+	
+	* Dans la diffusion atomique, l'ordre dans lequel les capteur transmettent les valeur doit être pris en compte. De plus, l'algorithme de diffusion doit attendre la fin de la transmission des valeurs du capteur avant de notifier l'afficheur. Nous avons implémenté l'attente de cette manière : 
+	
+```java 
+while(list.stream().anyMatch(x->!x.isDone()))
+{
+	Thread.sleep(50); // avoid too much CPU usage. 
+}
+```
+	
+``` Future<T>.isDone() ``` permet de vérifier qu'une methode est bien été invoquée et n'est plus en attente. Nous avons également remarqué que la consomation CPU était particulièrement élevée car la condition de la boucle ``` list.stream().anyMatch(x->!x.isDone() ``` est appelée trop souvent. Nous avons donc réduit la quantité de calcul en faisant patienter le thread 50ms entre chaque appel.
 
 ## Tests
 
