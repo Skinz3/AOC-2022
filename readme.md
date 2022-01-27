@@ -3,7 +3,7 @@
 
 ## Introduction
  
-* Le but de projet était de réaliser une simulation d'un service de diffusion des données provenant de capteurs.
+> Le but de projet était de réaliser une simulation d'un service de diffusion des données provenant de capteurs.
  
 * Afin de répondre a ce problème, nous utiliseront le patron de conception Active Object qui permet de découpler l'invocation de méthodes de l'objet qui en est propriétaire (en l'occurence, les capteurs).
 
@@ -11,8 +11,8 @@
 
 Voici donc les différent composants de notre application : 
 
-1. Le capteur
-2. Le canal
-3. L'Algorithme de diffusion
-4. L'afficheur
+* Le capteur
+* Le canal
+* L'Algorithme de diffusion
+* L'afficheur
 
