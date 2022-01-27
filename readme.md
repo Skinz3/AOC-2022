@@ -46,7 +46,7 @@ ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(POOL_SIZE)
 	
 ### Diffusion atomique
 	
-	* Dans la diffusion atomique, l'ordre dans lequel les capteur transmettent les valeur doit être pris en compte. De plus, l'algorithme de diffusion doit attendre la fin de la transmission des valeurs du capteur avant de notifier l'afficheur. Nous avons implémenté l'attente de cette manière : 
+* Dans la diffusion atomique, l'ordre dans lequel les capteur transmettent les valeur doit être pris en compte. De plus, l'algorithme de diffusion doit attendre la fin de la transmission des valeurs du capteur avant de notifier l'afficheur. Nous avons implémenté l'attente de cette manière : 
 	
 ```java 
 while(list.stream().anyMatch(x->!x.isDone()))
@@ -65,3 +65,6 @@ while(list.stream().anyMatch(x->!x.isDone()))
 	* Sur le thread principal (thread appellant la fonction de test). On appelle la fonction tick() du capteur et on observe les resulats des afficheurs, en 	     fonction de la stragégie de diffusion choisie.
 
 ## Conclusion
+	
+En résumé, ce projet nous a permit de clarifier notre comphrénsion du parallelisme et des outils que nous proposait java pour implémenter ces concepts.
+(Future pour gérer les promesses, Scheduler
