@@ -56,6 +56,49 @@ while(list.stream().anyMatch(x->!x.isDone()))
 ```
 	
 ``` Future<T>.isDone() ``` permet de vérifier qu'une methode est bien été invoquée et n'est plus en attente. Nous avons également remarqué que la consomation CPU était particulièrement élevée car la condition de la boucle ``` list.stream().anyMatch(x->!x.isDone() ``` est appelée trop souvent. Nous avons donc réduit la quantité de calcul en faisant patienter le thread 50ms entre chaque appel.
+	
+### Diffusion séquentielle
+
+* Dans la diffusion séquentielle, tous les observateurs sont notifiés au moment de l'éxecution de la strategie de diffusion, les tâches qui n'ont pas été éffectuées sont ignorées.
+	
+```java
+for (Canal c: this.canaux) 
+{
+	list.add(c.update(this.capteur));
+}
+		    
+		    
+for (Future<Void> operation : list)
+{
+	if (operation.isDone())
+	{
+		try {
+			operation.get();
+		} catch (InterruptedException | ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+```
+	
+### Diffusion par époque	
+	
+* La diffusion par époque est cahotique. En effet, l'algorithme de diffusion n'a aucun contrôle sur l'ordre de déroulement des opérations. Il n'attend pas d'avoir récupérer toutes valeurs du capteur, ainsi , certaines seront perdues lors de l'execution. 	
+	
+```java
+for (Canal c : canaux)	
+{
+	try 
+	{
+		c.update(capteur).get(); // no order, chaotic behaviors
+	} 
+	catch (InterruptedException | ExecutionException e) 
+	{
+		e.printStackTrace();
+	}
+}
+```
 
 ## Tests
 
