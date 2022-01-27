@@ -66,5 +66,5 @@ while(list.stream().anyMatch(x->!x.isDone()))
 
 ## Conclusion
 	
-En résumé, ce projet nous a permit de clarifier notre comphrénsion du parallelisme et des outils que nous proposait java pour implémenter ces concepts.
-(Future pour gérer les promesses, Scheduler
+En résumé, ce projet nous a permit de clarifier notre compréhension du parallelisme et des outils que nous proposait java pour implémenter ces concepts.
+(Future pour gérer les promesses, Scheduler etc), ainsi que plusieurs design pattern autour de Active Object qui ensemble, proposent une solution viable au problème posé.
