@@ -48,7 +48,7 @@ ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(POOL_SIZE)
 
 * Il existe plusieurs manière de tester notre programme. Nous n'avions pas d'IHM, nous sommes donc parti sur des test unitaire a l'aide de JUnit. Le cas de tests fonctionnent tous selon le même principe : 
 	
-	1. Tout les composants sont instanciés au démmarage du test (@BeforeEach). Capteurs, Afficheur, Canaux et le Scheduler.
-	2. Sur le thread principal (thread appellant la fonction de test). On appelle la fonction tick() du capteur et on observe les resulats des afficheurs, en 	     fonction de la stragégie de diffusion choisie.
+	* Tout les composants sont instanciés au démmarage du test (@BeforeEach). Capteurs, Afficheur, Canaux et le Scheduler.
+	* Sur le thread principal (thread appellant la fonction de test). On appelle la fonction tick() du capteur et on observe les resulats des afficheurs, en 	     fonction de la stragégie de diffusion choisie.
 
 ## Conclusion
