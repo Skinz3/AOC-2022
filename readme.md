@@ -18,6 +18,16 @@ Voici donc les différent composants de notre application :
 
 ## Capteur - Client
 
+* La fonction ```tick()`` du capteur permet de représenter l'arrivée de données. Lors de la récéption de ces données, à l'appel de cette fonction. Tout les observers sont notifiés, en l'occurence les canaux. Cependant, le traitement de ces données est delayé. En effet, chaque canal possède son propre thread qui est donc desynchronisé du thread principal ou la fonction ```tick()``` est appelée. Ainsi, le canal traitera les données periodiquement et le delay de traitement sera determiné par la fonction ```randomizeDelay()```
+
+```java
+
+private int randomizeDelay()
+{
+	  return (int)(Random.nextInt((MAX_DELAY - MIN_DELAY) + 1) + MAX_DELAY);
+}
+```
+* 
 ## Canal - Proxy 
 
 ## Afficheur - Servant
