@@ -16,9 +16,9 @@ Voici donc les différent composants de notre application :
 * L'Algorithme de diffusion
 * L'afficheur
 
-## Capteur -Client
+## Capteur - Client
 
-## Canal -Proxy 
+## Canal - Proxy 
 
 ## Afficheur - Servant
 
