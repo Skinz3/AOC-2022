@@ -44,7 +44,7 @@ ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(POOL_SIZE)
 
 ## Algorithme de diffusion - Strategy
 	
-	### Diffusion Atomique
+### Diffusion atomique
 	
 	* Dans la diffusion atomique, l'ordre dans lequel les capteur transmettent les valeur doit être pris en compte. De plus, l'algorithme de diffusion doit attendre la fin de la transmission des valeurs du capteur avant de notifier l'afficheur. Nous avons implémenté l'attente de cette manière : 
 	
