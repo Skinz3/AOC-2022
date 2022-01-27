@@ -28,7 +28,7 @@ public class Afficheur implements ObserverDeCapteur<CapteurAsync>
   
     @Override
     public void update(CapteurAsync canal) 
-    {
+    {	
         try
         {
             this.value = canal.getValue().get();
@@ -41,7 +41,7 @@ public class Afficheur implements ObserverDeCapteur<CapteurAsync>
         }
         finally 
         {
-        	logger.info("Afficheur : "+this.name+" ---> : "+this.value);
+        	logger.info("Afficheur ("+this.name+") ---> : "+this.value);
         }
         
        

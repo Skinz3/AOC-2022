@@ -56,7 +56,15 @@ public class CapteurImpl implements Capteur<ObserverAsync<Capteur>>
     @Override
     public void notifyAllObserver() 
     {
-        diffusionStrategy.execute();
+        try 
+        {
+			diffusionStrategy.execute();
+		} 
+        catch (InterruptedException e) 
+        {
+			
+			e.printStackTrace();
+		}
     }
 
     @Override

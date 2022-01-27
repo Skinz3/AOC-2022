@@ -2,6 +2,6 @@ package strategy;
 
 public interface AlgoDiffusion 
 {
-  void execute();
+  void execute()  throws InterruptedException ;
 
 }

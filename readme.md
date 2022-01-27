@@ -18,6 +18,8 @@ Voici donc les différent composants de notre application :
 
 ## Capteur - Client
 
+
+
 ## Canal - Proxy 
 
 ## Afficheur - Servant

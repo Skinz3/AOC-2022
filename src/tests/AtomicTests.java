@@ -42,18 +42,23 @@ public class AtomicTests
 		c1.attach(a1);
 		c2.attach(a2);
 
-	        
-
+	       
 		AtomicDiffusion diff = new AtomicDiffusion(capteur, new Canal[]{c1, c2});	
 		capteur.setAlgoDiffusion(diff);
 	}
 	@Test
 	public void test1()
 	{
-		
 		for (int i = 0;i <= 3; i++)
 		{
 			capteur.tick();
+		}
+		
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	      
 	}

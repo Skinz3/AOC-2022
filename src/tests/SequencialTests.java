@@ -43,10 +43,12 @@ class SequencialTests
 	   
 	}
 	@Test
-	public void test1()
+	public void test1() throws InterruptedException
 	{
 		capteur.tick();
 		capteur.tick();
+		
+		Thread.sleep(5000);
 	}
 	
 }

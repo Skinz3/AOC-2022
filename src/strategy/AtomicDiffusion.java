@@ -23,7 +23,7 @@ public class AtomicDiffusion implements AlgoDiffusion
   }
 
   @Override
-  public void execute() 
+  public void execute() throws InterruptedException 
   {
     List<Future<Void>> list = new ArrayList<Future<Void>>();
 
@@ -34,15 +34,7 @@ public class AtomicDiffusion implements AlgoDiffusion
     
     while(list.stream().anyMatch(x->!x.isDone()))
     {
-    	try 
-    	{
-			Thread.sleep(50); // avoid too much CPU usage. 
-		} 
-    	catch (InterruptedException e) 
-    	{
-			e.printStackTrace();
-		}
-    	
+    	Thread.sleep(50); // avoid too much CPU usage. 
     }
 
   }
